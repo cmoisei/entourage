@@ -395,7 +395,7 @@ def compress_and_mangle(file,code,type=:js)
 end
 
 def is_win32()
-    !(RUBY_PLATFORM =~ /(windows|win32)/).nil?
+    !(RUBY_PLATFORM =~ /(windows|win32|i386-mingw32)/).nil?
 end
 
 def call_command(cmd)
