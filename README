@@ -18,24 +18,36 @@ For changes please see the RELEASE_NOTES.
 
 To build Appcelerator Entourage from source, you will need the following
 prerequisites:
-
+	
+	-  Development Kit 
+		- Download from here http://rubyinstaller.org/downloads/
+		- DevKit url at this time : https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
+		- To install the json gem install the DevKit
+		- Follow instructions here : https://github.com/oneclick/rubyinstaller/wiki/development-kit
+			Or short instructions :
+				- Unzip the zip
+				- open command-line and go to unzipperd folder
+				- ruby dk.rb init
+				- ruby dk.rb install
+				- gem install rdiscount --platform=ruby
+				
+		
   - Ruby 1.8.6 or greater <http://www.ruby-lang.org/en/downloads/>
   - RubyGems with the following gems: rake, hoe, hpricot, json, maruku, rubyzip, aws-s3 [,aws, s3]
 	e.g. gem install rake
+	
+	For Windows create a batch file containing	
+		call gem install rake
+		call gem install hoe
+		call gem install hpricot
+		call gem install json
+		call gem install maruku
+		call gem install rubyzip
+		call gem install aws-s3
+		call gem install aws
+		call gem install s3
 
-	To install the json gem install the DevKit
 
-		- Download Development Kit from here http://rubyinstaller.org/downloads/
-		- DevKit url at this time : https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
-		- Follow instructions here : https://github.com/oneclick/rubyinstaller/wiki/development-kit
-
-	Or short instructions :
-
-		- Unzip the zip
-		- open command-line and go to unzipperd folder
-		- ruby dk.rb init
-		- ruby dk.rb install
-		- gem install rdiscount --platform=ruby
 
 To build the platform installers, you will need the following:
 
