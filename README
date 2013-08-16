@@ -1,6 +1,16 @@
 +=======================================================================================+
-+                        Appcelerator Entourage                                         +
++                        Appcelerator Entourage (Maintenance Branch)                    +
 +=======================================================================================+
+
+--------------
+ Sticky Note
+--------------
+This branch is a fork of the appcelerator/entourage. The sole purpose of this branch is to provide limited support to 
+projects that were started using the Entourage library since the library is no longer support by the Appcelerator team.
+
+If it happens to have the full docummentation for this project feel free go check it in.
+
+For changes please see the RELEASE_NOTES.
 
 ---------------------
  Build Prerequisites
@@ -10,7 +20,22 @@ To build Appcelerator Entourage from source, you will need the following
 prerequisites:
 
   - Ruby 1.8.6 or greater <http://www.ruby-lang.org/en/downloads/>
-  - RubyGems with the following gems: rake, hoe, hpricot, json, maruku, rubyzip
+  - RubyGems with the following gems: rake, hoe, hpricot, json, maruku, rubyzip, aws-s3 [,aws, s3]
+	e.g. gem install rake
+
+	To install the json gem install the DevKit
+
+		- Download Development Kit from here http://rubyinstaller.org/downloads/
+		- DevKit url at this time : https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
+		- Follow instructions here : https://github.com/oneclick/rubyinstaller/wiki/development-kit
+
+	Or short instructions :
+
+		- Unzip the zip
+		- open command-line and go to unzipperd folder
+		- ruby dk.rb init
+		- ruby dk.rb install
+		- gem install rdiscount --platform=ruby
 
 To build the platform installers, you will need the following:
 
@@ -32,6 +57,9 @@ then set the  environment variable 'TITANIUM_DIR' to the directory.  You will
 also need to follow build instructions in the titanium project before building.
 If you don't want to build  titanium or don't have it checked out, you can still
 build Appcelerator Entourage with no problems.
+
+E.g. PATH system variable for win32
+C:\bin\Ruby\Ruby187\bin;C:\bin\DevKit\DevKit_4.5.2\bin;C:\bin\java\jdk1.7.0\bin;C:\Program Files (x86)\NSIS;C:\Program Files (x86)\NSIS\Bin;
 
 --------------------
  Build Instructions
