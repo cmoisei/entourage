@@ -45,11 +45,13 @@ Can-Redefine-Classes: true
   FileUtils.mkdir_p(File.join(java_dir,'dist','lib')) rescue nil
 
   copy_dir "#{build_dir}/pieces", File.join(java_dir,'dist/pieces')
+  
   compile_dir(java_source, java_classes, "#{build_dir}/pieces/lib")
   jar_file = File.expand_path(File.join(java_dir, "dist/pieces/lib/entourage-#{build_config[:version]}.jar"))
+  puts "Build jar file #{jar_file}"
   create_jar_wmf(jar_file, java_classes, "#{AGENT_MF}")
   compile_dir("#{build_dir}/pieces/services", "#{java_dir}/dist/pieces/services", "#{java_dir}/dist/pieces/lib")
-
+  
   FileUtils.cd(java_classes) do
     excludes = %w(pieces/lib/optional/spring-2.5.6.jar pieces/lib/optional/ant-1.7.0.jar pieces/lib/optional/cglib-2.1.3.jar pieces/lib/optional/junit.jar)
 

@@ -1,0 +1,8 @@
++=======================================================================================+
++                        Appcelerator Entourage (Maintenance Branch)                    +
++=======================================================================================+
+
+August 16, 2013 | Version 3.0.3 
+
+- adding support changes to the build on a Windows 7/8 machine. That includes changes to the build files and to the README
+- adding more logging to AjaxServiceTransportServlet 

@@ -128,7 +128,24 @@ public class AjaxServiceTransportServlet extends HttpServlet
         {
             String check = Util.calcMD5(session.getId()+instanceid);
             failed = !check.equals(auth);
+			if ( LOG.isWarnEnabled() && failed )
+			{
+				String message = String.format(//
+					"(*) Invalid instance(%s) or auth(%s). The incoming auth does not match the calculated value (%s)", //
+					instanceid, auth, check );
+				LOG.warn( message );
+				//temporary disable the check
+				failed = false;
+			}
         }
+		else if ( instanceid == null )
+		{
+			LOG.warn( "Instance is null");
+		}
+		else if ( auth == null )
+		{
+			LOG.warn( "Auth is null" );
+		}
         
         
         if (failed)

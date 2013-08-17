@@ -13,24 +13,41 @@
 # limitations under the License. 
 
 def compile_dir(source_dir, output_dir, cp_dirs)
-  puts "Compiling Java files..." if VERBOSE
+  puts "Compiling Java files..." #if VERBOSE
   output_dir = File.expand_path(output_dir)
 
   if (cp_dirs.class != Array)
     cp_dirs = [cp_dirs]
   end
-
-  java_path_separator = RUBY_PLATFORM=~/win32/ ? ';' : ':'
-
+  puts "Platform #{RUBY_PLATFORM}" if VERBOSE
+  puts "Compiling #{source_dir} to #{output_dir} with classpath: #{cp_dirs}" if VERBOSE
+  java_path_separator = is_win32 ? ';' : ':'
+  
   cp = cp_dirs.collect{|d| Dir["#{d}/**/*.jar"]}.flatten()
   cp = cp.join(java_path_separator)
+  puts "Classpath cotents: #{cp}" if VERBOSE 
+  
+  currentFolder = File.dirname(__FILE__);
+  if is_win32 
+	cp = cp.gsub( currentFolder, ".");
+  end
   
   FileUtils.cd(source_dir) do
     src_files = Dir["**/*.java"].collect{|file| File.expand_path(file)}
     src_files = src_files.join(' ')
 
+	if is_win32 
+	src_files = src_files.gsub( currentFolder, ".");
+	end
+	
+	puts "Current folder #{currentFolder}" if VERBOSE
     FileUtils.mkdir_p "#{output_dir}" unless File.exists? "#{output_dir}"
-    call_command "javac -g -cp #{cp} #{src_files} -target 1.5 -d #{output_dir}"
+	Dir.chdir(currentFolder) do
+		cmdDir = File.dirname(__FILE__);
+		puts "running in folder #{cmdDir}" if VERBOSE
+		puts "javac -g -cp #{cp} #{src_files} -source 1.5 -target 1.5 -d #{output_dir}" if VERBOSE
+		call_command "javac -g -cp #{cp} #{src_files} -source 1.5 -target 1.5 -d #{output_dir} -Xlint:deprecation -Xlint:unchecked"
+	end
   end
 end
 
@@ -50,12 +67,15 @@ def create_jar_wmf(jar_file, class_dir, manifest)
   f = File.open tmpmanif,'w'
   f.puts manifest
   f.close
+  puts "Building jar file from #{class_dir}"
   FileUtils.cd(class_dir) do
      if is_win32
-       call_command "jar cmvf #{tmpmanif} #{jar_file} ."
+	   puts ">>> jar cmvf #{tmpmanif} #{jar_file} ." if VERBOSE
+       call_command "jar cmvf #{tmpmanif} #{jar_file} . >> jar.txt"
       else
        system "jar cmvf #{tmpmanif} #{jar_file} ." if VERBOSE
        system "jar cmvf #{tmpmanif} #{jar_file} . >/dev/null" unless VERBOSE
      end
   end
+  puts "Done."
 end
