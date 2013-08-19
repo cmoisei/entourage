@@ -5,12 +5,15 @@
 --------------
  Sticky Note
 --------------
-This branch is a fork of the appcelerator/entourage. The sole purpose of this branch is to provide limited support to 
-projects that were started using the Entourage library since the library is no longer support by the Appcelerator team.
+This branch is a fork of the appcelerator/entourage. The sole purpose of this 
+branch is to provide limited support to projects that were started using the 
+Entourage library since the library is no longer support by the Appcelerator 
+team. 
 
-If it happens to have the full docummentation for this project feel free go check it in.
+If it happens to have the full docummentation for this project feel free go 
+check it in or contact this owner of this repository.
 
-For changes please see the RELEASE_NOTES.
+For release notes on changes please see the RELEASE_NOTES.
 
 ---------------------
  Build Prerequisites
@@ -21,7 +24,8 @@ prerequisites:
 	
 	-  Development Kit 
 		- Download from here http://rubyinstaller.org/downloads/
-		- DevKit url at this time : https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
+		- DevKit url at this time
+			https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
 		- To install the json gem install the DevKit
 		- Follow instructions here : https://github.com/oneclick/rubyinstaller/wiki/development-kit
 			Or short instructions :
