@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+java-service.txt
+stage/
+.project
+=======
 stage/
 .project
 java-service.txt
+>>>>>>> 02adca92ee209bdafff87b8a19c37bc410230d27

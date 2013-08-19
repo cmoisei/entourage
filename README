@@ -22,7 +22,7 @@ For release notes on changes please see the RELEASE_NOTES.
 To build Appcelerator Entourage from source, you will need the following
 prerequisites:
 	
-	-  Development Kit 
+  -  Development Kit 
 		- Download from here http://rubyinstaller.org/downloads/
 		- DevKit url at this time
 			https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
@@ -34,8 +34,8 @@ prerequisites:
 				- ruby dk.rb init
 				- ruby dk.rb install
 				- gem install rdiscount --platform=ruby
-				
-		
+					
+			
   - Ruby 1.8.6 or greater <http://www.ruby-lang.org/en/downloads/>
   - RubyGems with the following gems: rake, hoe, hpricot, json, maruku, rubyzip, aws-s3 [,aws, s3]
 	e.g. gem install rake
